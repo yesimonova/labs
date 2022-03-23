@@ -1,0 +1,96 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    printf("Выберите номер подзадания.\n");
+    int answ;
+    scanf ("%d",&answ);
+    switch (answ) {
+        case 1:
+            printf("Это задание на перемену значений двух переменных местами.\n");
+            int A,B;
+            printf("Введите A.\n");
+            scanf("%d",&A);
+            printf("Введите B.\n");
+            scanf("%d",&B);
+            A=A+B;
+            B=A-B;
+            A=A-B;
+            printf("Новая A=%d\n",A);
+            printf("Новая B=%d\n",B);
+            break;
+        case 2:
+            printf("Это задание на перемену значений трёх переменных местами.\n");
+            int A1,B1,C1;
+            printf("Введите A.\n");
+            scanf("%d",&A1);
+            printf("Введите B.\n");
+            scanf("%d",&B1);
+            printf("Введите C.\n");
+            scanf("%d",&C1);
+            A1=A1+B1+C1;
+            B1=A1-B1-C1;
+            C1=A1-B1-C1;
+            A1=A1-B1-C1;
+            printf("Новая A=%d\n",A1);
+            printf("Новая B=%d\n",B1);
+            printf("Новая C=%d\n",C1);
+            break;
+        case 3:
+            printf("Это задание на перемену значений трёх переменных местами.\n");
+            int A2,B2,C2;
+            printf("Введите A.\n");
+            scanf("%d",&A2);
+            printf("Введите B.\n");
+            scanf("%d",&B2);
+            printf("Введите C.\n");
+            scanf("%d",&C2);
+            A2=A2+B2+C2;
+            C2=A2-B2-C2;
+            B2=A2-C2-B2;
+            A2=A2-C2-B2;
+            printf("Новая A=%d\n",A2);
+            printf("Новая B=%d\n",B2);
+            printf("Новая C=%d\n",C2);
+            break;
+        case 4:
+            printf("Это задание на нахождение значения функции.\n");
+            int x;
+            double y;
+            printf("Введите x.\n");
+            scanf("%d",&x);
+            y=3*pow(x,6)-6*pow(x,2)-7;
+            printf("y=%lf\n",y);
+            break;
+        case 5:
+            printf("Это задание на нахождение значения функции.\n");
+            int x1;
+            double y1;
+            printf("Введите x.\n");
+            scanf("%d",&x1);
+            y1=4*pow(x1-3,6)-7*pow(x1-3,2)+2;
+            printf("y=%lf\n",y1);
+            break;
+        case 6:
+            printf("Это задание на нахождение числа в восьмой степени.\n");
+            int A3,a;
+            printf("Введите A.\n");
+            scanf("%d",&A3);
+            a=A3*A3;
+            printf("A в восьмой степени равно %d\n",a*a*a);
+            break;
+        case 7:
+            printf("Это задание на нахождение числа в пятнадцатой степени.\n");
+            int A4,a1,a2;
+            printf("Введите A.\n");
+            scanf("%d",&A4);
+            a2=A4*A4;
+            a1=A4*A4*A4*A4*A4;
+            printf("A в пятнадцатой степени равно %d\n",a2*a2*a2*a2*a2*a1);
+            break;
+        default:
+            printf("Неверный номер подзадания.");
+    }
+    return 0;
+}

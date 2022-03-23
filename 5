@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    printf("Выберите номер подзадания.\n");
+    int answ;
+    scanf ("%d",&answ);
+    switch (answ) {
+        case 1:
+            printf("Это задание на нахождение расстояния между двумя точками с заданными координатами.\n");
+            double x1,x2,y1,y2;
+            printf("Введите координату x для первой точки.\n");
+            scanf("%lf",&x1);
+            printf("Введите координату y для первой точки.\n");
+            scanf("%lf",&y1);
+            printf("Введите координату x для второй точки.\n");
+            scanf("%lf",&x2);
+            printf("Введите координату y для второй точки.\n");
+            scanf("%lf",&y2);
+            printf("Расстояние равно %lf\n",sqrt(pow(x2-x1,2)+pow(y2-y1,2)));
+            break;
+        case 2:
+            printf("Это задание на нахождение длины отрезков AC и BC, а также их суммы.\n");
+            double A,B,C;
+            printf("Введите координату A.\n");
+            scanf("%lf",&A);
+            printf("Введите координату B.\n");
+            scanf("%lf",&B);
+            printf("Введите координату C.\n");
+            scanf("%lf",&C);
+            printf("Длина отрезка AC=%lf\n",fabs(A-C));
+            printf("Длина отрезка BC=%lf\n",fabs(B-C));
+            printf("Сумма отрезков AC и BC=%lf\n",fabs(A-C)+fabs(B-C));
+            break;
+        case 3:
+            printf("Это задание на нахождение произведения длин отрезков AC и BC.\n");
+            double A2,B2,C2;
+            printf("Введите координату A.\n");
+            scanf("%lf",&A2);
+            printf("Введите координату B.\n");
+            scanf("%lf",&B2);
+            printf("Введите координату C (она должна находиться между A и B.\n");
+            scanf("%lf",&C2);
+            while ((C2<A2&&C2<B2)||(C2>B2&&C2>A2)) {
+                printf("Точка C должна находиться между A и B!");
+                scanf("%lf",&C2);
+            }
+            printf("Произведение длин отрезков AC и BC равно%lf\n",fabs(A2-C2)*fabs(B2-C2));
+            break;
+        case 4:
+            printf("Это задание на нахождение периметра и площади данного прямоугольника.\n");
+            double px1,px2,py1,py2,S,P;
+            printf("Введите координату x для первой точки.\n");
+            scanf("%lf",&px1);
+            printf("Введите координату y для первой точки.\n");
+            scanf("%lf",&py1);
+            printf("Введите координату x для второй точки.\n");
+            scanf("%lf",&px2);
+            printf("Введите координату y для второй точки.\n");
+            scanf("%lf",&py2);
+            S=fabs(px2-px1)*fabs(py2-py1);
+            P=(fabs(px2-px1)+fabs(py2-py1))*2;
+            printf("P=%lf\n",P);
+            printf("S=%lf\n",S);
+            break;
+        case 5:
+            printf("Это задание на нахождение периметра и площади треугольника.\n");
+            double tx1,tx2,tx3,ty1,ty2,ty3,st1,st2,st3,P1,S1,p;
+            printf("Введите координату x для первой точки.\n");
+            scanf("%lf",&tx1);
+            printf("Введите координату y для первой точки.\n");
+            scanf("%lf",&ty1);
+            printf("Введите координату x для второй точки.\n");
+            scanf("%lf",&tx2);
+            printf("Введите координату y для второй точки.\n");
+            scanf("%lf",&ty2);
+            printf("Введите координату x для третьей точки.\n");
+            scanf("%lf",&tx3);
+            printf("Введите координату y для третьей точки.\n");
+            scanf("%lf",&ty3);
+            st1=sqrt((tx2-tx1)*(tx2-tx1)+(ty2-ty1)*(ty2-ty1));
+            st2=sqrt((tx3-tx2)*(tx3-tx2)+(ty3-ty2)*(ty3-ty2));
+            st3=sqrt((tx1-tx3)*(tx1-tx3)+(ty1-ty3)*(ty1-ty3));
+            P1=st1+st2+st3;
+            p=P1/2;
+            S1=sqrt(p*(p-st1)*(p-st2)*(p-st3));
+            printf("P=%lf\n",P1);
+            printf("S=%lf\n",S1);
+            break;
+        default:
+            printf("Неверный номер подзадания.");
+    }
+    return 0;
+}

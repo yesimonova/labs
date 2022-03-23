@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    printf("Выберите номер подзадания.\n");
+    int answ;
+    scanf ("%d",&answ);
+    switch (answ) {
+        case 1:
+            printf("Это задание на нахождение площади и периметра прямоугольника.\n");
+            int a,b,S,P;
+            printf("Введите длину прямоугольника.\n");
+            scanf("%d",&a);
+            while (a<0) {
+                printf("Число должно быть положительным!\n");
+                scanf("%d",&a);
+            }
+            printf("Введите ширину прямоугольника.\n");
+            scanf("%d",&b);
+            while (b<0) {
+                printf("Число должно быть положительным!\n");
+                scanf("%d",&b);
+            }
+            S=a*b;
+            P=2*(a+b);
+            printf("P=%d\n",P);
+            printf("S=%d\n",S);
+            break;
+        case 2:
+            printf("Это задание на нахождение длины окружности.\n");
+            double d,pi=3.14,L;
+            printf("Введите диаметр окружности.\n");
+            scanf("%lf",&d);
+            while (d<0) {
+                printf("Число должно быть положительным!\n");
+                scanf("%lf",&d);
+            }
+            L=pi*d;
+            printf("L=%lf\n",L);
+            break;
+        case 3:
+            printf("Это задание на нахождение среднего арифметического чисел.\n");
+            double first,second;
+            printf("Введите первое число.\n");
+            scanf("%lf",&first);
+            printf("Введите второе число.\n");
+            scanf("%lf",&second);
+            printf("Среднее арифметическое данных чисел=%lf\n",(first+second)/2);
+            break;
+        case 4:
+            printf("Это задание на нахождение суммы, разности, произведения, частного квадратов двух ненулевых чисел.\n");
+            double f,s;
+            printf("Введите первое число.\n");
+            scanf("%lf",&f);
+            while (f==0) {
+                printf("Число должно быть ненулевым!\n");
+                scanf("%lf",&f);
+            }
+            printf("Введите второе число.\n");
+            scanf("%lf",&s);
+            while (s==0) {
+                printf("Число должно быть ненулевым!\n");
+                scanf("%lf",&s);
+            }
+            printf("Сумма=%lf\n",pow(f,2)+pow(s,2));
+            printf("Разность=%lf\n",pow(f,2)-pow(s,2));
+            printf("Произведение=%lf\n",pow(f,2)*pow(s,2));
+            printf("Частное=%lf\n",pow(f,2)/pow(s,2));
+            break;
+        case 5:
+            printf("Это задание на нахождение суммы, разности, произведения, частного модулей двух ненулевых чисел.\n");
+            double one,two;
+            printf("Введите первое число.\n");
+            scanf("%lf",&one);
+            while (one==0) {
+                printf("Число должно быть ненулевым!\n");
+                scanf("%lf",&one);
+            }
+            printf("Введите второе число.\n");
+            scanf("%lf",&two);
+            while (two==0) {
+                printf("Число должно быть ненулевым!\n");
+                scanf("%lf",&two);
+            }
+            printf("Сумма=%lf\n",fabs(one)+fabs(two));
+            printf("Разность=%lf\n",fabs(one)-fabs(two));
+            printf("Произведение=%lf\n",fabs(one)*fabs(two));
+            printf("Частное=%lf\n",fabs(one)/fabs(two));
+            break;
+        default:
+            printf("Неверный номер подзадания.");
+    }
+    return 0;
+}

@@ -1,0 +1,107 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    printf("Выберите номер подзадания.\n");
+    int answ;
+    scanf ("%d",&answ);
+    switch (answ) {
+        case 1:
+            printf("Это задание на нахождение угла в радианах.\n");
+            double alpha;
+            const double pi=3.14;
+            printf("Введите значение угла альфа.\n");
+            scanf("%lf",&alpha);
+            while ((alpha<0)||(alpha>360)) {
+                printf("Введено неверное значение угла!");
+                scanf("%lf",&alpha);
+            }
+            printf("Угол альфа в радианах равен%lf\n",(alpha/180)*pi);
+            break;
+        case 2:
+            printf("Это задание на нахождение угла в радианах.\n");
+            double alpha1;
+            const double pi1=3.14;
+            printf("Введите значение угла альфа.\n");
+            scanf("%lf",&alpha1);
+            while ((alpha1<0)||(alpha1>(pi1*2))) {
+                printf("Введено неверное значение угла!");
+                scanf("%lf",&alpha1);
+            }
+            printf("Угол альфа в радианах равен%lf\n",(alpha1/180)*pi1);
+            break;
+        case 3:
+            printf("Это задание на нахождение стоимости конфет.\n");
+            int X,A,Y,kg1;
+            printf("Введите X (киллограмм конфет со стоимостью A).\n");
+            scanf("%d",&X);
+            printf("Введите саму стоимость A.\n");
+            scanf("%d",&A);
+            printf("Введите нужный вес конфет.\n");
+            scanf("%d",&Y);
+            kg1=A/X;
+            printf("Один киллограмм конфет стоит %d\n",kg1);
+            printf("%d киллограмм конфет стоят %d",Y,kg1*Y);
+            break;
+        case 4:
+            printf("Это задание на расстояния между двумя автомобилями.\n");
+            int v1,v2,T;
+            double s;
+            printf("Введите скорость первого автомобиля.\n");
+            scanf("%d",&v1);
+            printf("Введите скорость второго автомобиля.\n");
+            scanf("%d",&v2);
+            printf("Введите расстояние между автомобилями.\n");
+            scanf("%lf",&s);
+            printf("Введите нужное время T.\n");
+            scanf("%d",&T);
+            printf("Расстояние между ними через%d равно %lf",T,(v1+v2)*T+s);
+            break;
+        case 5:
+            printf("Это задание на решение линейного уравнения A*x+B=0.\n");
+            double A1,B1;
+            printf("Введите коэффициент A.\n");
+            scanf("%lf",&A1);
+            while (A1==0) {
+                printf("Коээфициент A не должен равняться нулю!");
+                scanf("%lf",&A1);
+            }
+            printf("Введите коэффициент B.\n");
+            scanf("%lf",&B1);
+            printf("x=%lf\n",((-B1)/A1));
+            break;
+        case 6:
+            printf("Это задание на решение системы линейных уравнений.\n");
+            double A3,B3,A4,B4,C3,C4,shag1,shag2,shag3,x,y;
+            printf("Введите A1.\n");
+            scanf("%lf",&A3);
+            printf("Введите B1.\n");
+            scanf("%lf",&B3);
+            printf("Введите A2.\n");
+            scanf("%lf",&A4);
+            printf("Введите B2.\n");
+            scanf("%lf",&B4);
+            printf("Введите C1.\n");
+            scanf("%lf",&C3);
+            printf("Введите C2.\n");
+            scanf("%lf",&C4);
+            shag1=A3*B4-B3*A4;
+            shag2=C3*B4-B3*C4;
+            shag3=A3*C4-C3*A4;
+            x=shag2/shag1;
+            y=shag3/shag1;
+            if (x==-0.0) {
+                x=0;
+            }
+            if (y==-0.0) {
+                y=0;
+            }
+            printf("x=%lf\n",x);
+            printf("y=%lf\n",y);
+            break;
+        default:
+            printf("Неверный номер подзадания.");
+    }
+    return 0;
+}

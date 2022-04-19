@@ -1,0 +1,112 @@
+#include <stdio.h>
+#include <math.h>
+
+double PowerA3(double A) {
+  double B=A*A*A;
+  return B;
+}
+
+double Sign(double X) {
+  if (X>0) {
+    return 1;
+  }
+  else if (X<0) {
+    return -1;
+  }
+  else {
+    return 0;
+  }
+}
+
+double RingS(double R1, double R2) {
+  return 3.14*(R1*R1-R2*R2);
+}
+
+double Quarter(double x, double y) {
+  if (x>0 && y>0) {
+    printf("Точка лежит в первой координатной плоскости.\n");
+  }
+  else if (x<0 && y>0) {
+    printf("Точка лежит во второй координатной плоскости.\n");
+  }
+  else if (x<0 && y<0) {
+    printf("Точка лежит в третьей координатной плоскости.\n");
+  }
+  else if (x>0 && y<0) {
+    printf("Точка лежит в четвёртой координатной плоскости.\n");
+  }
+  else {
+    printf("Введите ненулевые координаты!\n");
+  }
+return 0;
+}
+
+double Fact2(int N) {
+  double fact=1;
+  for (;N>0;N-=2) {
+    fact*=N;
+  }
+  return fact;
+}
+
+int main()
+{
+    printf("Выберите номер подзадания.\n");
+    int answ;
+    scanf ("%d",&answ);
+    switch (answ) {
+        case 1:
+            printf("Это задание на вызов функции PowerA3(A, B), вычисляющую третью степень числа A и возвращающую ее в переменной B.\n");
+            double A,B;
+            for (int i=0;i<5;i++) {
+              printf("Введите число A.\n");
+              scanf("%lf",&A);
+              B=PowerA3(A);
+              printf("B=%lf\n",B);
+            }
+            break;
+        case 2:
+            printf("Это задание на вызов функции Sign(X).\n");
+            double A1,B1;
+            printf("Введите число A.\n");
+            scanf("%lf",&A1);
+            printf("Введите число B.\n");
+            scanf("%lf",&B1);
+            double summ=Sign(A1)+Sign(B1);
+            printf("Sign(A) + Sign(B)=%lf\n",summ);
+            break;
+        case 3:
+            printf("Это задание на вызов функции RingS(R1, R2).\n");
+            double R1,R2;
+            for(int i=0;i<3;i++) {
+              printf("Введите R1 (R1>R2).\n");
+              scanf("%lf",&R1);
+              printf("Введите R2 (R1>R2).\n");
+              scanf("%lf",&R2);
+              printf("Площадь кольца равна %lf",RingS(R1, R2));
+            }
+            break;
+        case 4:
+            printf("Это задание на вызов функции Quarter(x, y).\n");
+            double X,Y;
+            for(int i=0;i<3;i++) {
+              printf("Введите координату X.\n");
+              scanf("%lf",&X);
+              printf("Введите координату Y.\n");
+              scanf("%lf",&Y);
+              Quarter(X, Y);
+              printf("\n");
+            }
+            break;
+        case 5:
+            printf("Это задание на вызов функции Fact2(N).\n");
+            int N;
+            printf("Введите целое положительное число.\n");
+            scanf("%d",&N);
+            printf("Двойной факториал равен %lf",Fact2(N));
+            break;
+        default:
+            printf("Неверный номер подзадания.");
+    }
+    return 0;
+}

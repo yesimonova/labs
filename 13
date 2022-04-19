@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    printf("Выберите номер подзадания.\n");
+    int answ;
+    scanf ("%d",&answ);
+    switch (answ) {
+        case 1:
+            printf("Это задание на определение стоимости конфет.\n");
+            double cena;
+            printf("Введите цену 1 кг конфет.\n");
+            scanf("%lf",&cena);
+            for (double i=0.1;i<1;i+=0.1) {
+                printf("Стоимость конфет весом %lf составляет %lf\n",i,i*cena);
+            }
+            break;
+        case 2:
+            printf("Это задание на нахождение произведения.\n");
+            int N,i=1;
+            double comp=1,somn=1;
+            printf("Введите целое положительное число, которое больше нуля.\n");
+            scanf("%d",&N);
+            while (i<=N) {
+                somn+=0.1;
+                comp=comp*somn;
+                i+=1;
+            }
+            printf("Произведение N сомножителей равно %lf",comp);
+            break;
+        case 3:
+            printf("Это задание на нахождение квадрата числа.\n");
+            int chislo;
+            printf("Введите целое положительное число, которое больше нуля.\n");
+            scanf("%d",&chislo);
+            int summ=0;
+            for (int k=1;k<=(2*chislo-1);k+=2) {
+                summ+=k;
+                printf("Текущее значение суммы по формуле N2 = 1 + 3 + 5 + . . . + (2·N − 1) равно %d\n",summ);
+            }
+            break;
+        case 4:
+            printf("Это задание на нахождение суммы числа в степени до N.\n");
+            int stepen;
+            double A,A1=1,otvet=1;
+            printf("Введите вещественное число.\n");
+            scanf("%lf",&A);
+            printf("Введите целое положительное число, которое больше нуля, означающее степень числа.\n");
+            scanf("%d",&stepen);
+            for (int k=1;k<=stepen;k++) {
+                A1*=A;
+                otvet+=A1;
+            }
+            printf("1 + A + A^2 + A^3 + . . . + A^N равно %lf",otvet);
+            break;
+        case 5:
+            printf("Это задание на нахождение значения 1 − A + A^2 − A^3 + . . . ± A^N.\n");
+            int stepen1;
+            double A2,A3=1,answer=1;
+            printf("Введите вещественное число.\n");
+            scanf("%lf",&A2);
+            printf("Введите целое положительное число, которое больше нуля, означающее степень числа.\n");
+            scanf("%d",&stepen1);
+            for (int k=1;k<=stepen1;k++) {
+                A3*=-A2;
+                answer+=A3;
+            }
+            printf("1 − A + A^2 − A^3 + . . . ± A^N равно %lf",answer);
+            break;
+        default:
+            printf("Неверный номер подзадания.");
+    }
+    return 0;
+}

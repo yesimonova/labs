@@ -1,0 +1,127 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <malloc.h>
+#include <time.h>
+
+int main()
+{
+    printf("Выберите номер подзадания.\n");
+    srand(time(NULL));
+    int answ;
+    scanf ("%d",&answ);
+    switch (answ) {
+        case 1:
+            printf("Это задание на создание целочисленного массива положительных нечётных чисел.\n");
+            int *a;
+            int N;
+            printf("Введите положительное число N, которое является размером массива.\n");
+            scanf("%d",&N);
+            a = (int*)malloc(N*sizeof(int));
+            for (int i=0;i<N;i++) {
+                a[i]=1+i*2;
+            }
+            for (int i=0;i<N;i++) {
+                printf("%d ",a[i]);
+            }
+            free(a);
+            break;
+        case 2:
+            printf("Это задание на создание массива типа A, A·D, A·D^2 , A·D^3 , . . .\n");
+            int *a1;
+            int N1,A,D;
+            printf("Введите положительное число N, которое больше единицы и является размером массива.\n");
+            scanf("%d",&N1);
+            printf("Введите первый член геометрической прогрессии.\n");
+            scanf("%d",&A);
+            printf("Введите знаменатель геометрической прогрессии.\n");
+            scanf("%d",&D);
+            a1 = (int*)malloc(N1*sizeof(int));
+            for (int i=0;i<N1;i++) {
+                a1[i]=A*pow(D,i);
+            }
+            for (int i=0;i<N1;i++) {
+                printf("%d ",a1[i]);
+            }
+            free(a1);
+            break;
+        case 3:
+            printf("Это задание на создание целочисленного массива, первый элемент которого равен A, второй равен B, а каждый последующий элемент равен сумме всех предыдущих.\n");
+            int *a2;
+            int N2,A2,B2;
+            printf("Введите положительное число N, которое больше единицы и является размером массива.\n");
+            scanf("%d",&N2);
+            printf("Введите первый член массива.\n");
+            scanf("%d",&A2);
+            printf("Введите второй член массива.\n");
+            scanf("%d",&B2);
+            a2 = (int*)malloc(N2*sizeof(int));
+            a2[0]=A2;
+            a2[1]=B2;
+            int summ;
+            for (int i=2;i<N2;i++) {
+                summ=0;
+                for (int j=0;j<i;j++) {
+                    summ=summ+a2[j];
+                }
+                a2[i]=summ;
+            }
+            for (int i=0;i<N2;i++) {
+                printf("%d ",a2[i]);
+            }
+            free(a2);
+            break;
+        case 4:
+            printf("Это задание на создание массива типа A(1), A(N) , A(2), A(N−1), A(3), A(N−2).\n");
+            int *a3;
+            int N3;
+            printf("Введите число N, которое является размером массива.\n");
+            scanf("%d",&N3);
+            a3 = (int*)malloc(N3*sizeof(int));
+            for (int i=0;i<N3;i++) {
+                a3[i]=rand()%100;
+            }
+            printf("Сгенерированный массив:\n");
+            for (int i=0;i<N3;i++) {
+                printf("%d ",a3[i]);
+            }
+            printf("\n");
+            printf("Преобразованный массив.\n");
+            for(int i=0;i<N3/2;i++) {
+                printf("%d ",a3[i]);
+                printf("%d ",a3[N3-1-i]);
+            }
+            if (N3%2!=0) {
+                printf("%d",a3[N3/2]);
+            }
+            free(a3);
+            break;
+        case 5:
+            printf("Это задание на вывод сначала элементов с нечётными номерами массива в порядке возрастания номеров, а затем – элементов с чётными номерами в порядке убывания номеров.\n");
+            int *a4;
+            int N4;
+            printf("Введите число N, которое является размером массива.\n");
+            scanf("%d",&N4);
+            a4 = (int*)malloc(N4*sizeof(int));
+            for (int i=0;i<N4;i++) {
+                a4[i]=rand()%100;
+            }
+            printf("Сгенерированный массив:\n");
+            for (int i=0;i<N4;i++) {
+                printf("%d ",a4[i]);
+            }
+            printf("\n");
+            printf("Преобразованный массив.\n");
+            for(int i=0;i<N4;i+=2) {
+                printf("%d ",a4[i]);
+            }
+            for(int i=N4-(N4%2)-1;i>=1;i-=2) {
+                printf("%d ",a4[i]);
+            }
+            free(a4);
+            break;
+        default:
+            printf("Неверный номер подзадания.");
+    }
+    return 0;
+}

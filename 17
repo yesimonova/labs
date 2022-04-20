@@ -1,0 +1,147 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <malloc.h>
+#include <time.h>
+
+int main()
+{
+    printf("Выберите номер подзадания.\n");
+    srand(time(NULL));
+    int answ;
+    scanf ("%d",&answ);
+    switch (answ) {
+        case 1:
+            printf("Это задание на нахождение среднего арифметического элементов массива с номерами от K до L включительно.\n");
+            int *a;
+            int N,K,L;
+            printf("Введите положительное число N, которое является размером массива.\n");
+            scanf("%d",&N);
+            printf("Введите номер K (1 ≤ K ≤ L ≤ N).\n");
+            scanf("%d",&K);
+            printf("Введите номер L (1 ≤ K ≤ L ≤ N).\n");
+            scanf("%d",&L);
+            a = (int*)malloc(N*sizeof(int));
+            for (int i=0;i<N;i++) {
+                a[i]=rand()%100;
+            }
+            printf("Сгенерированный массив:\n");
+            for (int i=0;i<N;i++) {
+                printf("%d ",a[i]);
+            }
+            printf("\n");
+            double summ=0;
+            for(int i=K-1;i<=L-1;++i) {
+                summ+=a[i];
+            }
+            double arifm=summ/(double)(L-K+1);
+            printf("Среднее арифметическое равно %lf\n",arifm);
+            free(a);
+            break;
+        case 2:
+            printf("Это задание на проверку наличия арифметической прогрессии в массиве.\n");
+            int *a1;
+            int N1;
+            printf("Введите положительное число N, которое является размером массива.\n");
+            scanf("%d",&N1);
+            a1 = (int*)malloc(N1*sizeof(int));
+            printf("Введите элементы массива (числа не должны повторяться).\n");
+            for (int i=0;i<N1;i++) {
+                scanf("%d",&a1[i]);
+            }
+            printf("Сгенерированный массив:\n");
+            for (int i=0;i<N1;i++) {
+                printf("%d ",a1[i]);
+            }
+            printf("\n");
+            int d=a1[1]-a1[0];
+            for (int i=0;i<N1;i++) {
+                if (d!=a1[i]-a1[i-1]) {
+                    d=0;
+                }
+            }
+            printf("Разность прогрессии равна %d",d);
+            free(a1);
+            break;
+        case 3:
+            printf("Это задание на нахождение минимального элемента среди элементов массива с чётными номерами.\n");
+            int *a2;
+            int N2;
+            printf("Введите положительное число N, которое является размером массива.\n");
+            scanf("%d",&N2);
+            a2 = (int*)malloc(N2*sizeof(int));
+            for (int i=0;i<N2;i++) {
+                a2[i]=rand()%100;
+            }
+            printf("Сгенерированный массив:\n");
+            for (int i=0;i<N2;i++) {
+                printf("%d ",a2[i]);
+            }
+            printf("\n");
+            int min=a2[1];
+            for (int i=1;i<N2;i+=2) {
+                if (min>a2[i]) {
+                    min=a2[i];
+                }
+            }
+            printf("Минимальный элемент среди элементов массива с чётными номерами %d\n",min);
+            free(a2);
+            break;
+        case 4:
+            printf("Это задание на нахождение номера последнего локального максимума массива.\n");
+            int *a3;
+            int N3;
+            printf("Введите число N, которое является размером массива.\n");
+            scanf("%d",&N3);
+            a3 = (int*)malloc(N3*sizeof(int));
+            for (int i=0;i<N3;i++) {
+                a3[i]=rand()%100;
+            }
+            printf("Сгенерированный массив:\n");
+            for (int i=0;i<N3;i++) {
+                printf("%d ",a3[i]);
+            }
+            printf("\n");
+            if (a3[N3-1]>a3[N3-2]) {
+                printf("%d",N3);
+            }
+            else {
+                int i=N3-2;
+                while ((i>=1) && !(a[i-1]<a[i]) && (a[i]>a[i+1])) {
+                    --i;
+                }
+                printf("%d",i+1);
+            }
+            free(a3);
+            break;
+        case 5:
+            printf("Это задание на вывод номеров одинаковых элементов массива в порядке возрастания.\n");
+            int *a4;
+            int N4;
+            printf("Введите число N, которое является размером массива.\n");
+            scanf("%d",&N4);
+            a4 = (int*)malloc(N4*sizeof(int));
+            printf("Введите элементы массива (два числа должны повторяться).\n");
+            for (int i=0;i<N4;i++) {
+                scanf("%d",&a4[i]);
+            }
+            printf("Сгенерированный массив:\n");
+            for (int i=0;i<N4;i++) {
+                printf("%d ",a4[i]);
+            }
+            printf("\n");
+            int i2;
+            for (int i=0;i<N4-1;i++) {
+                for (i2=i+1;i2<N4;i2++) {
+                    if (a4[i]==a4[i2]) {
+                        printf("%d %d",i+1,i2+1);
+                    }
+                }
+            }
+            free(a4);
+            break;
+        default:
+            printf("Неверный номер подзадания.");
+    }
+    return 0;
+}
